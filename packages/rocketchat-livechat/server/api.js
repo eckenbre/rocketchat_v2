@@ -1,0 +1,4 @@
+import '../imports/server/rest/departments.js';
+import '../imports/server/rest/sms.js';
+import '../imports/server/rest/users.js';
+import '../imports/server/rest/transferir.js';
