@@ -1,11 +1,8 @@
 RocketChat.callbacks.add('afterSaveMessage', function(message, room) {
 	// skips this callback if the message was edited
 	////ALEJANDRO
-	if(message.u.username === "watson"){
-
-	}
-	else {
-
+  console.log(RocketChat.models.Rooms.findIfTransfered(room))
+	if(message.u.username != "chatbot"){
 
 	Meteor.defer(() => {
 		try {
@@ -13,7 +10,7 @@ RocketChat.callbacks.add('afterSaveMessage', function(message, room) {
 				data: {
 					mensaje: message.msg,
 					roomId: message.rid,
-					agente: room
+					agente: room.servedBy.username
 				},
 				headers: {
 					'Content-Type': 'application/json; charset=utf-8'
@@ -22,10 +19,11 @@ RocketChat.callbacks.add('afterSaveMessage', function(message, room) {
 
 //	if (response.data && response.data.status.code === 200 ) {
 			if (response.data && response.statusCode === 200) {
-		     console.log("Respondio 200")
+		     //console.log("Respondio 200")
 			}
 		} catch (e) {
 			SystemLogger.error('Error en la llamada ->', e);
+			console.log("Error en llamada a servicio rocket/data : "+e)
 		}
 
 	});

@@ -174,6 +174,14 @@ RocketChat.models.Rooms.findOpenByAgent = function(userId) {
 	return this.find(query);
 };
 
+RocketChat.models.Rooms.findIfTransfered = function(roomId) {
+	const query = {
+		_id: roomId
+	};
+
+	return this.find(query);
+};
+
 RocketChat.models.Rooms.changeAgentByRoomId = function(roomId, newAgent) {
 	const query = {
 		_id: roomId

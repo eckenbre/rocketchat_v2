@@ -5,7 +5,7 @@ RocketChat.API.v1.addRoute('livechat/transferir', { authRequired: true }, {
 		}
 		try {
 
-      console.log("TRANSFERIR");
+
 
       //const departamento = this.bodyParams.depto;
     //  const salaId = this.bodyParams.roomId;
@@ -16,24 +16,60 @@ RocketChat.API.v1.addRoute('livechat/transferir', { authRequired: true }, {
   			departmentId: Match.Optional(String)
   		});
 
-
+       const retorno = "Exito";
       Meteor.call('livechat:transfer', transferirData, (error, result) => {
 			if (error) {
         console.log("Hubo error");
 				console.log(error.error);
+				return RocketChat.API.v1.failure(error);
 			} else if (result) {
 
-				console.log("Transferido!")
+				return RocketChat.API.v1.success(result);
 			} else {
-				console.log("No_available_agents_to_transfer");
+				//console.log("No_available_agents_to_transfer");
+
 			}
 		});
 
 
-const retorno = "ALE";
-			return RocketChat.API.v1.success({ retorno });
+
+
 		} catch (e) {
+			console.log(e.error);
 			return RocketChat.API.v1.failure(e.error);
 		}
+	}
+	/*
+	,
+
+	get() {
+		if (!RocketChat.authz.hasPermission(this.userId, 'view-livechat-manager')) {
+			return RocketChat.API.v1.unauthorized();
+		}
+
+		return RocketChat.API.v1.success({
+			users: RocketChat.models.Users.find({"operator": true, "statusLivechat" : "available", "status" : "online" }).fetch()
+		});
+	},
+	*/
+});
+
+RocketChat.API.v1.addRoute('livechat/availableOperators', { authRequired: true }, {
+get() {
+		if (!RocketChat.authz.hasPermission(this.userId, 'view-livechat-manager')) {
+			return RocketChat.API.v1.unauthorized();
+		}
+		var availableOperators = false;
+		const availableOper = RocketChat.models.Users.find({
+$and:[{ "roles" : "livechat-agent"}, {"status" : "online" }, {"roles" : {$ne: "bot"}}]
+	  }).fetch();
+    if(availableOper.length > 0){
+			availableOperators = true;
+
+		}
+
+		return RocketChat.API.v1.success({
+			availableOperators
+		});
 	}
 });
