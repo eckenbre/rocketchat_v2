@@ -1,7 +1,7 @@
 <template name="messages">
-	{{#with agentData}}
+	<!--{{#with agentData}}
 	<div class="header">
-		<div class="picture">
+		 <div class="picture">
 			<img src="{{avatar}}">
 		</div>
 		<div class="info">
@@ -17,6 +17,7 @@
 		</div>
 	</div>
 	{{/with}}
+	-->
 	<div class="messages">
 		<div class="wrapper">
 			<ul>
@@ -71,7 +72,7 @@
 			{{/with}}
 		{{else}}
 			{{> options show=showOptions}}
-			<button class="toggle-options secondary-font-color">{{optionsLink}}</button>
+			<!-- <button class="toggle-options secondary-font-color">{{optionsLink}}</button> -->
 		{{/if}}
 	</div>
 </template>

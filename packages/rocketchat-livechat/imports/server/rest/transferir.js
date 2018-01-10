@@ -19,8 +19,8 @@ RocketChat.API.v1.addRoute('livechat/transferir', { authRequired: true }, {
        const retorno = "Exito";
       Meteor.call('livechat:transfer', transferirData, (error, result) => {
 			if (error) {
-        console.log("Hubo error");
-				console.log(error.error);
+      
+				SystemLogger.error('---- Error al transferir ->: ', error.error);
 				return RocketChat.API.v1.failure(error);
 			} else if (result) {
 

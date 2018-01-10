@@ -1,7 +1,10 @@
 RocketChat.callbacks.add('afterSaveMessage', function(message, room) {
 	// skips this callback if the message was edited
 	////ALEJANDRO
-  console.log(RocketChat.models.Rooms.findIfTransfered(room))
+  //console.log(RocketChat.models.Rooms.findIfTransfered(room))
+
+  SystemLogger.error('---- HSBC ChatBot User name ->', message.u.username);
+
 	if(message.u.username != "chatbot"){
 
 	Meteor.defer(() => {
@@ -22,8 +25,8 @@ RocketChat.callbacks.add('afterSaveMessage', function(message, room) {
 		     //console.log("Respondio 200")
 			}
 		} catch (e) {
-			SystemLogger.error('Error en la llamada ->', e);
-			console.log("Error en llamada a servicio rocket/data : "+e)
+			SystemLogger.error('Error en la llamad a aservicio rocket/data ->', e);
+
 		}
 
 	});

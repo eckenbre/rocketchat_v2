@@ -43,12 +43,16 @@ Template.message.helpers({
 			default:
 				this.html = this.msg;
 				if (s.trim(this.html) !== '') {
-					this.html = s.escapeHTML(this.html);
+					//ALEJANDRO
+					//this.html = s.escapeHTML(this.html);
+					this.html = this.html;
 				}
 				// message = RocketChat.callbacks.run 'renderMessage', this
 				const message = this;
 				this.html = message.html.replace(/\n/gm, '<br/>');
-				return livechatAutolinker.link(this.html);
+				//ALEJANDRO
+				//return livechatAutolinker.link(this.html);
+				return this.html;
 		}
 	},
 
