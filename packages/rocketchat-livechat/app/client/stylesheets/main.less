@@ -97,7 +97,7 @@ input:focus {
 
 	&:hover {
 		text-decoration: none;
-		color: #ffffff;
+		color: #FAF;
 
 		&::before {
 			opacity: 1;
@@ -251,8 +251,8 @@ input:focus {
 
 				.content {
 					width: 75%;
-					background-color: #f3f3f3;
-					border: 1px solid desaturate(darken(#f3f3f3, 10%), 40%);
+					background-color: #DEDEDE !important;
+					border: 1px solid #CCCCCC !important;
 					margin-left: 38px;
 					border-radius: 6px;
 					padding: 5px;
@@ -309,7 +309,9 @@ input:focus {
 							top: -20px;
 							left: 0;
 							width: 100%;
-							border-top: 1px solid #dddddd;
+
+							background-color: #DEDEDE !important;
+              border: 1px solid #CCCCCC !important;
 						}
 					}
 				}
@@ -421,11 +423,22 @@ input:focus {
 				}
 
 				a {
-					color: @link-font-color;
+					color:#000000 !important;
 					font-weight: 400;
 
 					&:hover {
-						color: darken(@link-font-color, 10%);
+
+						color:#DA0011 !important;
+						text-decoration: underline;
+					}
+					&:focus {
+
+						color:#DA0011 !important;
+						text-decoration: underline;
+					}
+					&:visited {
+
+						color:#DA0011 !important;
 						text-decoration: underline;
 					}
 				}
@@ -479,6 +492,7 @@ input:focus {
 
 			&.not {
 				transform: translateY(100%);
+				display:none !important;
 			}
 		}
 
@@ -602,7 +616,7 @@ input:focus {
 					padding: 0 13px 0 8px;
 
 					&:hover {
-						background-color: #eeeeee;
+						background-color: #FDA;
 					}
 
 					button {

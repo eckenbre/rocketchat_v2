@@ -485,7 +485,7 @@
 	var bodyStyle;
 	var scrollPosition;
 
-	var widgetWidth = '320px';
+	var widgetWidth = '85%';
 	var widgetHeightOpened = '100%';
 	var widgetHeightClosed = '30px';
 
