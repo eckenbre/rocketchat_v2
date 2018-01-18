@@ -649,7 +649,11 @@
 		config.url = url;
 
 		var chatWidget = document.createElement('div');
+
 		chatWidget.dataset.state = 'closed';
+		//ALEJANDRO modificacion vuelta atras
+		//chatWidget.dataset.state = 'opened';
+
 		chatWidget.className = 'rocketchat-widget';
 		chatWidget.innerHTML = '<div class="rocketchat-container" style="width:100%;height:100%">' +
 			'<iframe id="rocketchat-iframe" src="' + url + '" style="width:100%;height:100%;border:none;background-color:transparent" allowTransparency="true"></iframe> ' +

@@ -65,9 +65,12 @@ Template.message.helpers({
 	sender() {
 		const agent = Livechat.agent;
 		if (agent && this.u.username === agent.username) {
-			return agent.name || agent.username;
+			// return agent.name || agent.username;
+			//ALEJANDRO Harcodeo HSBC
+			return "HSBC Bank Argentina S.A.";
 		}
-		return this.u.username;
+		//return this.u.username;
+		return "HSBC Bank Argentina S.A.";
 	}
 });
 
