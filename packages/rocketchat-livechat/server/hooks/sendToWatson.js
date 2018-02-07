@@ -3,13 +3,13 @@ RocketChat.callbacks.add('afterSaveMessage', function(message, room) {
 	////ALEJANDRO
   //console.log(RocketChat.models.Rooms.findIfTransfered(room))
 
-  SystemLogger.error('---- HSBC ChatBot User name ->', message.u.username);
+  //SystemLogger.error('---- HSBC ChatBot User name ->', message.u.username);
 
 	if(message.u.username != "chatbot"){
 
 	Meteor.defer(() => {
 		try {
-			const response = HTTP.post('http://redcloud.mybluemix.net/rocket/data', {
+			const response = HTTP.post('http://hbar-red-apolo-11.mybluemix.net/rocket/data', {
 				data: {
 					mensaje: message.msg,
 					roomId: message.rid,
