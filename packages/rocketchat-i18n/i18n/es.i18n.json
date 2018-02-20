@@ -1261,7 +1261,7 @@
   "User_joined_channel": "Se ha unido al canal.",
   "User_joined_channel_female": "Se ha unido al canal",
   "User_joined_channel_male": "Se ha unido al canal",
-  "User_left": "<em>__user_left__</em> ha salido del canal.",
+  "User_left": "me desconecto",
   "User_left_female": "Ha salido del canal",
   "User_left_male": "Ha salido del canal",
   "User_logged_out": "El usuario está desconectado",
