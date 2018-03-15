@@ -11,7 +11,8 @@ Template.livechatWindow.helpers({
 		return Livechat.fontColor;
 	},
 	popoutActive() {
-		return FlowRouter.getQueryParam('mode') === 'popout';
+		//return FlowRouter.getQueryParam('mode') === 'popout';
+		return true;
 	},
 	soundActive() {
 		return Session.get('sound');
@@ -58,8 +59,9 @@ Template.livechatWindow.events({
 		parentCall('toggleWindow');
 	},
 	'click .popout'(event) {
-		event.stopPropagation();
-		parentCall('openPopout');
+		//ALEJANDRO
+//		event.stopPropagation();
+//		parentCall('openPopout');
 	},
 	'click .sound'(event) {
 		event.stopPropagation();
@@ -144,4 +146,6 @@ Template.livechatWindow.onCreated(function() {
 			$('textarea').focus();
 		}
 	});
+	//ALEJANDRO Esto deja maximizada la ventana.
+	parentCall('toggleWindow');
 });

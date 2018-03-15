@@ -55,6 +55,9 @@ Template.message.helpers({
 				return this.html;
 		}
 	},
+	clientehbar() {
+  	return "Vos";
+  },
 
 	system() {
 		if (['s', 'p', 'f', 'r', 'au', 'ru', 'ul', 'wm', 'uj', 'livechat-close'].includes(this.t)) {
@@ -67,10 +70,10 @@ Template.message.helpers({
 		if (agent && this.u.username === agent.username) {
 			// return agent.name || agent.username;
 			//ALEJANDRO Harcodeo HSBC
-			return "HSBC Bank Argentina S.A.";
+			return "HSBC BANK – Centro de Atención al Cliente";
 		}
 		//return this.u.username;
-		return "HSBC Bank Argentina S.A.";
+		return "HSBC BANK – Centro de Atención al Cliente";
 	}
 });
 

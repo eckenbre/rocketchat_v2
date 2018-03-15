@@ -7,9 +7,28 @@ this.visitor = new class {
 		this.room = new ReactiveVar(null);
 		this.roomToSubscribe = new ReactiveVar(null);
 		this.roomSubscribed = null;
+		//ALEJANDRO agregue esto
+		//localStorage.clear();
 	}
 
 	register() {
+		//ALEJANDRO
+		console.log("ejecuto Register en _visitor.js")
+		// window.localStorage.removeItem('Meteor.loginToken');
+		// window.localStorage.removeItem('Meteor.loginTokenExpires');
+    // window.localStorage.removeItem('Meteor.userId');
+	   localStorage.clear();
+	// window.localStorage.clear();
+	 //Meteor._localStorage.clear();
+	 Meteor.logout(function(err){
+ 	 	console.log(err);
+		});
+		Meteor._localStorage.removeItem('Meteor.loginToken');
+		Meteor._localStorage.removeItem('Meteor.loginTokenExpires');
+		Meteor._localStorage.removeItem('Meteor.userId');
+
+
+
 		if (!localStorage.getItem('visitorToken')) {
 			localStorage.setItem('visitorToken', Random.id());
 		}

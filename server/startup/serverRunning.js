@@ -23,7 +23,8 @@ Meteor.startup(function() {
 			`           Platform: ${ process.platform }`,
 			`       Process Port: ${ process.env.PORT }`,
 			`           Site URL: ${ RocketChat.settings.get('Site_Url') }`,
-			`   ReplicaSet OpLog: ${ oplogState }`
+			`   ReplicaSet OpLog: ${ oplogState }`,
+			`  For: Aru v20,Tatan v15, Firulo v3, Firulin v0.2`
 		];
 
 		if (RocketChat.Info.commit && RocketChat.Info.commit.hash) {
